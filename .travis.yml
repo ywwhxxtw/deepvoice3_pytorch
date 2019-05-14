@@ -1,0 +1,40 @@
+language: python
+
+python:
+  - "3.6"
+
+notifications:
+  email: false
+
+before_install:
+  - sudo apt-get update
+  - if [["$TRAVIS_PYTHON_VERSION" == "2.7"]]; then
+      wget http://repo.continuum.io/miniconda/Miniconda-3.8.3-Linux-x86_64.sh -O miniconda.sh;
+    else
+      wget http://repo.continuum.io/miniconda/Miniconda3-3.8.3-Linux-x86_64.sh -O miniconda.sh;
+    fi
+  - bash miniconda.sh -b -p $HOME/miniconda
+  - export PATH="$HOME/miniconda/bin:$PATH"
+  - hash -r
+  - conda config --set always_yes yes --set changeps1 no
+  - conda update -q conda
+  # Useful for debugging any issues with conda
+  - conda config --add channels pypi
+  - conda info -a
+  - deps='pip numpy scipy cython nose pytorch flake8'
+  - conda create -q -n test-environment "python=$TRAVIS_PYTHON_VERSION" $deps -c pytorch
+  - source activate test-environment
+
+install:
+  - pip install -e ".[test]"
+  - python -c "import nltk; nltk.download('cmudict')"
+
+before_script:
+  # stop the build if there are Python syntax errors or undefined names
+  - flake8 . --count --select=E901,E999,F821,F822,F823 --show-source --statistics
+  # exit-zero treats all errors as warnings.  The GitHub editor is 127 chars wide
+  - flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
+
+script:
+  - nosetests -v -w tests/ -a '!local_only'
+ 
