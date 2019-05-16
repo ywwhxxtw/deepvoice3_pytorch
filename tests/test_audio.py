@@ -18,4 +18,3 @@ def test_amp_to_db():
     x = np.random.rand(10)
     x_hat = audio._db_to_amp(audio._amp_to_db(x))
     assert np.allclose(x, x_hat)
-# some uesless

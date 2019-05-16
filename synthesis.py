@@ -168,4 +168,3 @@ Your browser does not support the audio element.
 
     print("Finished! Check out {} for generated audio samples.".format(dst_dir))
     sys.exit(0)
-    # some uesless

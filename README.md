@@ -1,6 +1,6 @@
 ![alt text](assets/banner.jpg)
 
-# Deepvoice3_pytorch
+# Deepvoice3_pytorch for Chinese
 
 [![PyPI](https://img.shields.io/pypi/v/deepvoice3_pytorch.svg)](https://pypi.python.org/pypi/deepvoice3_pytorch)
 [![Build Status](https://travis-ci.org/r9y9/deepvoice3_pytorch.svg?branch=master)](https://travis-ci.org/r9y9/deepvoice3_pytorch)
@@ -8,12 +8,21 @@
 [![DOI](https://zenodo.org/badge/108992863.svg)](https://zenodo.org/badge/latestdoi/108992863)
 
   
-This repo is forked from https://github.com/r9y9/deepvoice3_pytorch for a deepvoice3 optimization for Chinese by yunke_ws   
+This repo is forked from https://github.com/r9y9/deepvoice3_pytorch for a deepvoice3 optimization for Chinese by **yunke_ws**  
 PyTorch implementation of convolutional networks-based text-to-speech synthesis models.
 
-#Current State
-May 14 2018: Update Chinese presets and corresponding cleaners, now model support Chinese, but still with robotic sound.  
-Working on sound quality optimization and document fix.
+## Current State
+*May 16 2019:* Use nyanko's builder get a pretty good sound, still training, will see it's eval result, check those good sample in sample document  
+
+*May 14 2019:* Update Chinese presets and corresponding cleaners, now model support Chinese, but still with robotic sound.  
+*Working on sound quality optimization and document fix.*
+
+## Preparation for Chinese
+I already finished preprocess part. For usage, lets suppose you set your data format in [biaobei's open source data](https://www.data-baker.com/open_source.html). 
+Please set your text name as your_data.txt and set your audio direcotry as your_data-wav. After that, just follow the original preprocess steps and change that parameter to "biaobei".  
+
+## Chinese samples
+Please check some Chinese samples in sample directory, will keep updating!
 
 
 ## Online TTS demo
