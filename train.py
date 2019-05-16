@@ -968,7 +968,7 @@ if __name__ == "__main__":
             log_event_path = "log/run-test" + str(datetime.now()).replace(" ", "_")
     print("Los event path: {}".format(log_event_path))
     writer = SummaryWriter(log_dir=log_event_path)
-
+    # some uesless
     # Train!
     try:
         train(device, model, data_loader, optimizer, writer,
