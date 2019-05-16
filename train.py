@@ -378,12 +378,10 @@ def prepare_spec_image(spectrogram):
 def eval_model(global_step, writer, device, model, checkpoint_dir, ismultispeaker):
     # harded coded
     texts = [
-        "Scientists at the CERN laboratory say they have discovered a new particle.",
-        "There's a way to measure the acute emotional intelligence that has never gone out of style.",
-        "President Trump met with other leaders at the Group of 20 conference.",
-        "Generative adversarial network or variational auto-encoder.",
-        "Please call Stella.",
-        "Some have accepted this as a miracle without any physical explanation.",
+        "jin1 tian1 tian1 qi4 zhen1 bu2 cuo4 。",
+        "zuo2 wan3 ， ya4 zhou1 wen2 hua4 jia1 nian2 hua2 zai4 guo2 jia1 ti3 yu4 chang3 sheng4 da4 kai1 yan3 。",
+        "zhe4 shi4 zhong1 hua2 min2 zu2 shi3 zhong1 jian1 shou3 de5 dao4 de2 zhun3 ze2 。",
+        "you3 shen2 me5 xu1 yao4 wo3 bang1 mang2 ma5 ？ jin2 guan3 shuo1 ！"
     ]
     import synthesis
     synthesis._frontend = _frontend

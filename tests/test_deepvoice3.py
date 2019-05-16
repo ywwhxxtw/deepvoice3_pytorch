@@ -52,7 +52,7 @@ def _pad(seq, max_len):
 
 
 def _test_data():
-    texts = ["ni2 hao3 ， wo3 shi4 ye4 xiu1 .", "jin1 tian1 tian1 qi4 zhen1 bu2 cuo4 . "]
+    texts = ["ni2 hao3 ， wo3 shi4 jing3 cha2 .", "jin1 tian1 tian1 qi4 zhen1 bu2 cuo4 . "]
     seqs = [np.array(text_to_sequence(t), dtype=np.int) for t in texts]
     input_lengths = np.array([len(s) for s in seqs])
     max_len = np.max(input_lengths)
@@ -124,7 +124,7 @@ def _pad_2d(x, max_len, b_pad=0):
 
 
 def test_multi_speaker_deepvoice3():
-    texts = ["ni2 hao3 ， wo3 shi4 ye4 xiu1 .", "jin1 tian1 tian1 qi4 zhen1 bu2 cuo4 . "]
+    texts = ["ni2 hao3 ， wo3 shi4 jing3 cha2 .", "jin1 tian1 tian1 qi4 zhen1 bu2 cuo4 . "]
     seqs = [np.array(text_to_sequence(t), dtype=np.int) for t in texts]
     input_lengths = np.array([len(s) for s in seqs])
     max_len = np.max(input_lengths)
@@ -147,7 +147,7 @@ def test_multi_speaker_deepvoice3():
 
 @attr("issue38")
 def test_incremental_path_multiple_times():
-    texts = ["ni2 hao3 ， wo3 shi4 ye4 xiu1 ."]
+    texts = ["ni2 hao3 ， wo3 shi4 jing3 cha2 ."]
     seqs = np.array([text_to_sequence(t) for t in texts])
     text_positions = np.arange(1, len(seqs[0]) + 1).reshape(1, len(seqs[0]))
 
@@ -178,7 +178,7 @@ def test_incremental_path_multiple_times():
 
 
 def test_incremental_correctness():
-    texts = ["ni2 hao3 ， wo3 shi4 ye4 xiu1 ."]
+    texts = ["ni2 hao3 ， wo3 shi4 jing3 cha2 ."]
     seqs = np.array([text_to_sequence(t) for t in texts])
     text_positions = np.arange(1, len(seqs[0]) + 1).reshape(1, len(seqs[0]))
 
@@ -245,7 +245,7 @@ def test_incremental_forward():
     model.make_generation_fast_()
     model = model.cuda() if use_cuda else model
 
-    texts = ["ni2 hao3 ， wo3 shi4 ye4 xiu1 ."]
+    texts = ["ni2 hao3 ， wo3 shi4 jing3 cha2 ."]
     seqs = np.array([text_to_sequence(t) for t in texts])
     input_lengths = [len(s) for s in seqs]
 

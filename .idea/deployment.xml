@@ -9,6 +9,13 @@
           </mappings>
         </serverdata>
       </paths>
+      <paths name="dell@192.168.1.128:22">
+        <serverdata>
+          <mappings>
+            <mapping deploy="/data/yunke_ws/deepvoice3" local="$PROJECT_DIR$" />
+          </mappings>
+        </serverdata>
+      </paths>
       <paths name="gowild@172.27.1.207:22">
         <serverdata>
           <mappings>

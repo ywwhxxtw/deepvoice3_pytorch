@@ -48,7 +48,7 @@ def build_from_path(in_dir, out_dir, num_workers=1, tqdm=lambda x: x):
           else:
               text = line.strip()
               if wav_path is not None and text is not None:
-                  task = partial(_process_utterance, out_dir, index, wav_path, text)
+                  task = partial(_process_utterance, out_dir, int(index/2), wav_path, text)
                   futures.append(executor.submit(task))
           index += 1
     return [future.result() for future in tqdm(futures) if future.result() is not None]
@@ -70,8 +70,10 @@ def build_from_path_old(hparams, input_dirs, mel_dir, linear_dir, wav_dir, n_job
             else:
                 text = line.strip()
                 if wav_path is not None and text is not None:
+                    print(int(index/2))
                     futures.append(executor.submit(
                         partial(_process_utterance, mel_dir, linear_dir, wav_dir, int(index/2), wav_path, text, hparams)))
+
             index += 1
     return [future.result() for future in tqdm(futures)]
 

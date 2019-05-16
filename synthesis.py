@@ -33,6 +33,7 @@ from deepvoice3_pytorch import frontend
 from hparams import hparams, hparams_debug_string
 
 from tqdm import tqdm
+import librosa
 
 use_cuda = torch.cuda.is_available()
 device = torch.device("cuda" if use_cuda else "cpu")
@@ -128,7 +129,8 @@ if __name__ == "__main__":
         checkpoint_name = splitext(basename(checkpoint_path))[0]
 
     model.seq2seq.decoder.max_decoder_steps = max_decoder_steps
-
+    #waveform, alignment, _, _ = tts(model, "kan4 jian4 qian2 mian4 na5 ba3 san3 le4 ma1 。", p=replace_pronunciation_prob, speaker_id=speaker_id, fast=True)
+    # librosa.output.write_wav("outputs/new.wav", waveform, 22050)
     os.makedirs(dst_dir, exist_ok=True)
     with open(text_list_file_path, "rb") as f:
         lines = f.readlines()
